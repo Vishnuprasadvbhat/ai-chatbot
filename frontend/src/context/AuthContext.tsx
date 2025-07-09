@@ -1,5 +1,5 @@
-import { createContext, useEffect, useState, type ReactNode } from "react";
-import { useViewTransitionState } from "react-router-dom";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+
 
 type User = {
   name : string ;
@@ -15,7 +15,8 @@ type UserAuth = {
   logout : () => Promise<void>;
 
 }
-export const authContext = createContext<UserAuth|null >(null);
+
+export const AuthContext = createContext<UserAuth|null >(null);
 
 export const AuthProvider = ({children}: {children:ReactNode} ) => {
   const [user, setUser] = useState<User | null>(null); 
@@ -24,8 +25,21 @@ export const AuthProvider = ({children}: {children:ReactNode} ) => {
   useEffect( () => {
     // fetch if user cookies are valid,  then skip login
 
-  }. []);
-  const login = async (email : string, password: string ) => {
-    
-  }
-}
+  }, []);
+  const login = async (email : string, password: string ) => {};
+  const signup  = async (name :string , email : string, password: string ) => {};
+  const logout = async () => {};
+
+  const value  = {
+    user, 
+    isLoggedIn,
+    login,
+    signup,
+    logout,
+
+  };
+  return (<AuthContext.Provider value= {value}>{children}</AuthContext.Provider>)
+};
+
+
+export const useAuth = () => useContext(AuthContext);
