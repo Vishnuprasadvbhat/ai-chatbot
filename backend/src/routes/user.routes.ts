@@ -5,7 +5,7 @@ import { user_validate, signup_validator, login_validator } from "../utils/valid
 
 const userRoute = Router();
 
-userRoute.get('/',getAllusers);
+//userRoute.get('/',getAllusers);
 userRoute.post('/signup', user_validate(signup_validator), registerUser);
 userRoute.post('/login', user_validate(login_validator), loginUser);
 

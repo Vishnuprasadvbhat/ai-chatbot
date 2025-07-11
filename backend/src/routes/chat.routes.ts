@@ -3,6 +3,6 @@ import { getAllChats } from "../controllers/chats.controllers.js";
 
 const chatRoute = Router();
 
-chatRoute.get("/", getAllChats);
+chatRoute.get("/chats", getAllChats);
 
 export default chatRoute;

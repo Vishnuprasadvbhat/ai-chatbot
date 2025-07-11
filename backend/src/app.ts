@@ -18,13 +18,13 @@ app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 // remove in production
 app.use(morgan('dev'));
 
-app.use('/api/v1/',router);
+app.use('/api',router);
 
-app.get('/', (req, res) => {
-  console.log('Done')
-  res.send('Welcome to the Chat Bot API');
-  res.send(200);
-})
+// app.get('/', (req, res) => {
+//   console.log('Done')
+//   res.send('Welcome to the Chat Bot API');
+//   res.send(200);
+// })
 
 
 export default app;
