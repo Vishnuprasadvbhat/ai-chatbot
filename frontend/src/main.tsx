@@ -7,7 +7,7 @@ import { AuthProvider } from "./context/AuthContext.tsx";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
 
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || "http://localhost:5000/api/vi";
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 axios.defaults.withCredentials = true; // Enable cookies to be sent with requests
 
 const theme = createTheme({
