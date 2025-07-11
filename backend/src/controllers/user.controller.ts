@@ -45,7 +45,7 @@ export const registerUser = async(req: Request, res:Response, next: NextFunction
     // sending the token in form of a cookie 
     res.cookie(COOKIE_NAME, token, COOKIE_OPTIONS);
 
-    return res.status(201).json({message: "User created successfully", id : user._id.toString()});
+    return res.status(201).json({message: "User created successfully", name: user.name, email:user.email});
   }
   }
   catch (error){
@@ -82,7 +82,7 @@ export const loginUser = async(req:Request, res:Response, next: NextFunction) =>
     // sending the token in form of a cookie 
     res.cookie(COOKIE_NAME, token, COOKIE_OPTIONS);
 
-    return res.status(200).json({message: "Login successful", id: user._id.toString()});
+    return res.status(200).json({message: "Login successful", name: user.name, email:user.email});
 
   }catch (error) {
     console.log(error);
