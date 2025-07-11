@@ -1,20 +1,25 @@
-import type { colors } from '@mui/material';
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 type Props = {
   // Define any props if needed
   to: string;
   bg: string;
   text: string;
-  textColor : string;
-  onClick?: () => void;
-
-}
-const Nav = (props:Props) => {
+  textColor: string;
+  onClick?: () => void; // Optional onClick handler
+};
+const Nav = (props: Props) => {
   return (
-    <Link to ={props.to} style={background:props.bg, color: props.}></Link>
-  )
-}
+    <Link
+    className ='nav-link'
+      to={props.to}
+      style={{ background: props.bg, color: props.textColor }}
+    >
+      {" "}
+      {props.text}{" "}
+    </Link>
+  );
+};
 
-export default Nav
+export default Nav;
